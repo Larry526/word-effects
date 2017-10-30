@@ -32,7 +32,21 @@ int main(int argc, const char * argv[]) {
         NSString *combinedString = [editedInput stringByAppendingString:ehInputString];
         NSLog(@"4. Canadianize %@", combinedString);
         
-        NSLog(@"5. Respond %@", combinedString);
+        if ([editedInput hasSuffix:@"!"]) {
+            NSLog(@"5. Respond Whoa calm down!");
+
+        } else if ([editedInput hasSuffix:@"?"]) {
+            NSLog(@"5. Respond I don't know");
+
+        } else {
+            NSLog(@"5. Respond : %@", inputString);
+        }
+        
+        
+        
+        NSString *noSpaceInput = [inputString stringByReplacingOccurrencesOfString:@" " withString:@"-"];
+        NSLog(@"6. Despace %@", noSpaceInput);
+
 
         
 
