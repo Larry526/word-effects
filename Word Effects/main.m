@@ -9,9 +9,41 @@
 #import <Foundation/Foundation.h>
 
 int main(int argc, const char * argv[]) {
-    @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+  
+    while (true) {
+        char inputChars[255];
+        printf("Input a string: ");
+        fgets(inputChars, 255, stdin);
+        printf("Your string is %s", inputChars);
+        NSString *inputString = [NSString stringWithUTF8String:inputChars];
+        NSLog(@"Input was : %@", inputString);
+        NSLog(@"1. Uppercase : %@", [inputString uppercaseString]);
+        NSLog(@"2. Lowercase : %@", [inputString lowercaseString]);
+        
+        int convertedValue = [inputString intValue];
+        if (convertedValue != 0) {
+            NSLog(@"3. Numberize : %d", [inputString intValue]);
+        } else {
+            NSLog(@"Cannot convert to integer, or the number input is 0");
+        }
+   
+        NSString *editedInput = [inputString stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        NSString *ehInputString = @", eh?";
+        NSString *combinedString = [editedInput stringByAppendingString:ehInputString];
+        NSLog(@"4. Canadianize %@", combinedString);
+        
+        NSLog(@"5. Respond %@", combinedString);
+
+        
+
+
+
+        
+
     }
+
+    
+    
+
     return 0;
 }
